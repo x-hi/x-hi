@@ -8,13 +8,9 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+      
       - name: Checkout
         uses: actions/checkout@v2
-      
-      # Download burpsuite pro
-      - name: download
-        run: |
-          wget "https://portswigger-cdn.net/burp/releases/download?product=pro&type=Jar" -O burpsuite_pro.jar
       
       - uses: dev-drprasad/delete-tag-and-release@v0.2.1
         with:
@@ -22,6 +18,12 @@ jobs:
           repo: x-hi/x-hi
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        
+      # Download burpsuite pro
+      - name: download
+        run: |
+          wget "https://portswigger-cdn.net/burp/releases/download?product=pro&type=Jar" -O burpsuite_pro.jar
+      
       # Release
       - name: Create Release
         id: create_release
