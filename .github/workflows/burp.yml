@@ -16,7 +16,12 @@ jobs:
         run: |
           wget "https://portswigger-cdn.net/burp/releases/download?product=pro&type=Jar" -O burpsuite_pro.jar
       
-  
+      - uses: dev-drprasad/delete-tag-and-release@v0.2.1
+        with:
+          tag_name: latest
+          repo: x-hi/x-hi
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       # Release
       - name: Create Release
         id: create_release
@@ -25,7 +30,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           tag_name: latest
-          release_name: Release latest
+          release_name: Release BurpSuite
           draft: false
           prerelease: false
 
