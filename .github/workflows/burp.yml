@@ -24,10 +24,12 @@ jobs:
           echo "::set-output name=release::Burpsuite_Pro_$(date +"%Y.%m.%d")"
 
       - name: release
-        uses: actions/upload-release-asset@v1
-        env:
-           GITHUB_TOKEN: ${{ secrets.TOKEN }}
+        uses: svenstaro/upload-release-action@v2
         with:
-          asset_path: ./burpsuite_pro.jar
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
+          file: ./burpsuite_pro.jar
           asset_name: burpsuite_pro.jar
+          tag: ${{ github.ref }}
+          overwrite: true
+          body: "This is my release text"
           
