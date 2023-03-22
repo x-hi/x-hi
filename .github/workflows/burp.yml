@@ -12,7 +12,8 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
       
-      - uses: dev-drprasad/delete-tag-and-release@v0.2.1
+      - name: Delete old release
+        uses: dev-drprasad/delete-tag-and-release@v0.2.1
         with:
           tag_name: latest
           repo: x-hi/x-hi
@@ -20,7 +21,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         
       # Download burpsuite pro
-      - name: download
+      - name: Download
         run: |
           wget "https://portswigger-cdn.net/burp/releases/download?product=pro&type=Jar" -O burpsuite_pro.jar
       
@@ -36,7 +37,7 @@ jobs:
           draft: false
           prerelease: false
 
-      - name: release
+      - name: Releasing
         uses: actions/upload-release-asset@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
