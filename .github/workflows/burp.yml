@@ -12,11 +12,6 @@ jobs:
       # Download burpsuite pro
       - run: wget https://portswigger-cdn.net/burp/releases/download?product=pro&type=Jar -O burpsuite_pro.jar
       
-      # Delete old releases
-      - uses: dev-drprasad/delete-older-releases@v0.2
-        with:
-          keep_latest: false
-          delete_tags: true
   
       # Release
       - name: create release tag
