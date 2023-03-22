@@ -10,7 +10,9 @@ jobs:
     steps:
       
       # Download burpsuite pro
-      - run: wget https://portswigger-cdn.net/burp/releases/download?product=pro&type=Jar -O burpsuite_pro.jar
+      - name: download
+        run: |
+          wget "https://portswigger-cdn.net/burp/releases/download?product=pro&type=Jar" -O burpsuite_pro.jar
       
   
       # Release
