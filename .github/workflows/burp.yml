@@ -18,15 +18,21 @@ jobs:
       
   
       # Release
-      - name: create release tag
-        id: tag
-        run: |
-          echo "::set-output name=release::Burpsuite_Pro_$(date +"%Y.%m.%d")"
+      - name: Create Release
+        id: create_release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: ${{ github.ref }}
+          release_name: Release ${{ github.ref }}
+          draft: false
+          prerelease: false
 
       - name: release
-        uses: svenstaro/upload-release-action@v2
+        uses: actions/upload-release-asset@v1
         with:
-          repo_token: ${{ secrets.GITHUB_TOKEN }}
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
           file: ./burpsuite_pro.jar
           asset_name: burpsuite_pro.jar
           tag: ${{ github.ref }}
