@@ -24,9 +24,10 @@ jobs:
           echo "::set-output name=release::Burpsuite_Pro_$(date +"%Y.%m.%d")"
 
       - name: release
-        uses: softprops/action-gh-release@v1
+        uses: actions/upload-release-asset@v1
+        env:
+           GITHUB_TOKEN: ${{ secrets.TOKEN }}
         with:
-          token: ${{ secrets.TOKEN }}
-          tag_name: ${{ steps.tag.outputs.release }}
-          files: |
-            ./burpsuite_pro.jar
+          asset_path: ./burpsuite_pro.jar
+          asset_name: burpsuite_pro.jar
+          
