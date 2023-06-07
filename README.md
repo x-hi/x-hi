@@ -6,7 +6,7 @@
 ### Helper 🍀
 - Download Helper: [BurpSuiteHelper.zip](https://github.com/x-hi/x-hi/raw/main/BurpSuiteHelper.zip)
 
-### JRE 17 🌺
-- JRE Windows: [jre17_windows.zip](https://github.com/x-hi/x-hi/releases/download/jre/zulu17.40.19-ca-jre17.0.6-win_x64.zip)
+### JRE 19 🌺
+- JRE Windows: [jre_windows.zip](https://github.com/x-hi/x-hi/releases/download/jre/zulu19.32.13-ca-jre19.0.2-win_x64.zip)
 
-- JRE Linux: [jre17_linux.zip](https://github.com/x-hi/x-hi/releases/download/jre/zulu17.40.19-ca-jre17.0.6-linux_x64.zip)
+- JRE Linux: [jre_linux.zip](https://github.com/x-hi/x-hi/releases/download/jre/zulu19.32.13-ca-jre19.0.2-linux_x64.zip)
